@@ -8,4 +8,7 @@
 .content {
   max-width: 1080px;
   width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  row-gap: 70px;
 }

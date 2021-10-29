@@ -1,0 +1,10 @@
+.title {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.divider {
+  height: 1px;
+  background-color: #727272;
+  border-radius: 5px;
+}
