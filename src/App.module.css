@@ -1,0 +1,11 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+}
+
+.content {
+  max-width: 1080px;
+  width: 100%;
+}
