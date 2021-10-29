@@ -10,16 +10,8 @@ export default function initI18n() {
     .use(initReactI18next)
     .init({
       resources: {
-        en: {
-          translation: {
-            hi: "Hi, I am Gui Barbosa",
-          },
-        },
-        ptBR: {
-          translation: {
-            hi: "Olá, meu nome é Gui Barbosa",
-          },
-        },
+        en: { translation: en },
+        ptBR: { translation: ptBR },
       },
       fallbackLng: "ptBR",
     });
