@@ -16,7 +16,7 @@ const Header: React.FC = ({}) => {
         />
         <div>
           <div className={styles.about}>
-            <h3 className={styles.hi}>{t("hi")}</h3>
+            <h1 className={styles.hi}>{t("hi")}</h1>
             <div className={styles.icons}>
               <a href="https://twitter.com/guibarbosadev">
                 <img
