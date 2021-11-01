@@ -1,0 +1,43 @@
+.container {
+  width: 100%;
+}
+
+.leftContent {
+  width: 50%;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 30px;
+}
+
+.avatar {
+  border-radius: 50%;
+
+  width: 100px;
+  height: 100px;
+}
+
+.hi {
+  font-size: 24;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.icons {
+  display: grid;
+  column-gap: 5px;
+  grid-template-columns: auto auto;
+}
+
+.about {
+  display: flex;
+  align-items: center;
+}
+
+.aboutText {
+  font-size: 18px;
+}
+
+.socialIcon {
+  width: 32px;
+  height: 32px;
+}
