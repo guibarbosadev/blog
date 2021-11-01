@@ -9,7 +9,7 @@ const Header: React.FC = ({}) => {
     <header className={styles.container}>
       <div className={styles.leftContent}>
         <Image
-          src="/me.jpeg"
+          src="/images/me.jpeg"
           width={100}
           height={100}
           className={styles.avatar}
@@ -22,7 +22,7 @@ const Header: React.FC = ({}) => {
               <a href="https://twitter.com/guibarbosadev">
                 <Image
                   className={styles.socialIcon}
-                  src="/twitter.svg"
+                  src="/images/twitter.svg"
                   width={32}
                   height={32}
                   alt={t("myTwitter")}
@@ -31,7 +31,7 @@ const Header: React.FC = ({}) => {
               <a href="https://github.com/guibarbosadev">
                 <Image
                   className={styles.socialIcon}
-                  src="/github.png"
+                  src="/images/github.png"
                   width={32}
                   height={32}
                   alt={t("myGithub")}
