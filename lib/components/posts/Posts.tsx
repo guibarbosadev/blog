@@ -1,9 +1,13 @@
 import styles from "./Posts.module.css";
 import { useTranslation } from "react-i18next";
-import { posts } from "./mockedPosts";
 import PostTile from "../post-tile/PostTile";
+import { Post } from "../../types/post";
 
-const Posts = () => {
+interface PostsProps {
+  posts: Post[];
+}
+
+const Posts: React.FC<PostsProps> = ({ posts }) => {
   const { t } = useTranslation();
 
   return (
