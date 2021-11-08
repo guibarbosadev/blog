@@ -12,6 +12,7 @@ const Header: React.FC = ({}) => {
           src="/images/me.jpeg"
           width={100}
           height={100}
+          layout="fixed"
           className={styles.avatar}
           alt={t("avatarPicture")}
         />
