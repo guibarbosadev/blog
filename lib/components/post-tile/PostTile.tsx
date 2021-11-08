@@ -1,4 +1,5 @@
 import type { Post } from "../../types/post";
+import { format } from "date-fns";
 import styles from "./PostTile.module.css";
 
 interface PostTileProps {
@@ -14,7 +15,9 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
         </a>
         <div className={styles.badge}>{post.category}</div>
       </div>
-      <div className={styles.date}>{post.date}</div>
+      <div className={styles.date}>
+        {format(new Date(post.date), "LLLL, d, yyyy").toLowerCase()}
+      </div>
       <p className={styles.description}>{post.description}</p>
     </div>
   );
