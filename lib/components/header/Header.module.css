@@ -17,12 +17,12 @@
 .hi {
   font-size: 24;
   font-weight: 700;
-  margin-right: 0.5rem;
+  margin-right: 1rem;
 }
 
 .icons {
   display: grid;
-  column-gap: 0.3125rem;
+  column-gap: 0.5rem;
   grid-template-columns: auto auto;
 }
 
