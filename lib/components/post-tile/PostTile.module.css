@@ -1,23 +1,40 @@
 .container {
-  padding-top: 30px;
+  padding-top: 1.875rem;
 }
 
 .titleContainer {
   display: grid;
   grid-template-columns: repeat(2, min-content);
-  column-gap: 25px;
+  column-gap: 1.5625rem;
+  align-items: center;
 }
 
 .title {
   white-space: nowrap;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 500;
+  color: #000;
+}
+
+.titleLink {
+  text-decoration-line: underline;
+  text-decoration-color: #000;
 }
 
 .badge {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 500;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   border: 1px solid #000;
   border-radius: 5px;
+  white-space: nowrap;
+  height: min-content;
+}
+
+.description {
+  font-size: 1.5rem;
+}
+
+.date {
+  font-size: 1rem;
 }

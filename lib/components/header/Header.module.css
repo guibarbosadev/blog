@@ -6,25 +6,24 @@
   width: 50%;
   display: grid;
   grid-template-columns: auto auto;
-  column-gap: 30px;
+  column-gap: 1.875rem;
 }
 
 .avatar {
   border-radius: 50%;
-
-  width: 100px;
-  height: 100px;
+  width: 6.25rem;
+  height: 6.25rem;
 }
 
 .hi {
   font-size: 24;
   font-weight: 700;
-  margin-right: 8px;
+  margin-right: 0.5rem;
 }
 
 .icons {
   display: grid;
-  column-gap: 5px;
+  column-gap: 0.3125rem;
   grid-template-columns: auto auto;
 }
 
@@ -34,10 +33,10 @@
 }
 
 .aboutText {
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .socialIcon {
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
 }

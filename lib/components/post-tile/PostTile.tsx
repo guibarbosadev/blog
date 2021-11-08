@@ -9,7 +9,7 @@ const PostTile: React.FC<PostTileProps> = ({ post }) => {
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>
-        <a href={post.url}>
+        <a className={styles.titleLink} href={post.url}>
           <h3 className={styles.title}>{post.title}</h3>
         </a>
         <div className={styles.badge}>{post.category}</div>
