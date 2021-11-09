@@ -22,22 +22,33 @@ function sortPosts(posts: Post[]) {
 }
 
 export function getPosts(locale: Locale): Post[] {
+  type ParsedResult = { content: string; data: Omit<Post, "id" | "url"> };
   const postsDirectory = getPostsDirectory(locale);
   const fileNames = fs.readdirSync(postsDirectory);
+
   const posts: Post[] = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, "");
     const fullpath = path.join(postsDirectory, fileName);
     const fileContent = fs.readFileSync(fullpath, "utf8");
-    type ParsedResult = { content: string; data: Omit<Post, "id" | "url"> };
     const parsedResult: ParsedResult = matter(fileContent) as any;
+    const { data: postData } = parsedResult;
+    const url = `/posts/${postData.title.split(" ").join("-").toLowerCase()}`;
 
     return {
       id,
-      url: `/${parsedResult.data.title.split(" ").join("-").toLowerCase()}`,
-      ...parsedResult.data,
+      url,
+      ...postData,
     };
   });
   const sortedPosts = sortPosts(posts);
 
   return sortedPosts;
+}
+
+export function getPostsIds(locale: Locale): string[] {
+  const postsDirectory = getPostsDirectory(locale);
+  const fileNames = fs.readdirSync(postsDirectory);
+  const ids = fileNames.map((fileName) => fileName.replace(/\.md$/, ""));
+
+  return ids;
 }
