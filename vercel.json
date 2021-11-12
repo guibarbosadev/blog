@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/cpf-generator/:asset*",
+      "destination": "https://cpf-generator.vercel.app/:asset*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
+}
