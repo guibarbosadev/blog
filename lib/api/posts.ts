@@ -32,7 +32,11 @@ export function getPosts(locale: Locale): Post[] {
     const fileContent = fs.readFileSync(fullpath, "utf8");
     const parsedResult: ParsedResult = matter(fileContent) as any;
     const { data: postData } = parsedResult;
-    const url = `/posts/${postData.title.split(" ").join("-").toLowerCase()}`;
+    const url = `/posts/${postData.title
+      .split(" ")
+      .join("-")
+      .replace(/(?![À-ú]|-)(\W)/g, "")
+      .toLowerCase()}`;
 
     return {
       id,
@@ -48,7 +52,7 @@ export function getPosts(locale: Locale): Post[] {
 export function getPostsIds(locale: Locale): string[] {
   const postsDirectory = getPostsDirectory(locale);
   const fileNames = fs.readdirSync(postsDirectory);
-  const ids = fileNames.map((fileName) => fileName.replace(/\.md$/, ""));
+  const ids = fileNames.map((fileName) => fileName.replace(/(\.md)|(\W)$/, ""));
 
   return ids;
 }

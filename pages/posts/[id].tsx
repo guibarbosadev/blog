@@ -21,14 +21,19 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const ptPostsIds = getPostsIds("pt-BR");
-  const enPostsIds = getPostsIds("en");
-  const postIds = ptPostsIds.concat(enPostsIds);
-  const paths = postIds.map((postName) => ({
+  const ptPostsIds = getPostsIds("pt-BR").map((postId) => ({
     params: {
-      id: postName,
+      id: postId,
     },
+    locale: "pt-BR",
   }));
+  const enPostsIds = getPostsIds("en").map((postId) => ({
+    params: {
+      id: postId,
+    },
+    locale: "en",
+  }));
+  const paths = ptPostsIds.concat(enPostsIds);
 
   return {
     paths,
