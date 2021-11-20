@@ -1,20 +1,26 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import type { FC } from "react";
-import { getPostsIds } from "../../lib/api/posts";
+import { getPost, getPostsIds } from "../../lib/api/posts";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 
-const PostDetail: FC = () => {
+interface PostDetailProps {
+  content: string;
+}
+
+const PostDetail: FC<PostDetailProps> = ({ content }) => {
   const { t } = useTranslation("common");
-  return <div>{t("hi")}</div>;
+  return <div dangerouslySetInnerHTML={{ __html: content }}></div>;
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
   let props = {};
+  const { id = "" } = params || {};
 
   if (locale) {
     const translations = await serverSideTranslations(locale, ["common"]);
-    props = { ...translations };
+    const content = getPost(params?.id as string, locale as any);
+    props = { content, ...translations };
   }
 
   return { props };

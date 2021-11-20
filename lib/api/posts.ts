@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { Post } from "../types/post";
 import { Locale } from "../types/locale";
+import { marked } from "marked";
 
 function getPostsDirectory(locale: Locale) {
   return path.join(process.cwd(), "posts", locale);
@@ -21,7 +22,7 @@ function sortPosts(posts: Post[]) {
   });
 }
 
-export function getPosts(locale: Locale): Post[] {
+function getPosts(locale: Locale): Post[] {
   type ParsedResult = { content: string; data: Omit<Post, "id" | "url"> };
   const postsDirectory = getPostsDirectory(locale);
   const fileNames = fs.readdirSync(postsDirectory);
@@ -49,10 +50,21 @@ export function getPosts(locale: Locale): Post[] {
   return sortedPosts;
 }
 
-export function getPostsIds(locale: Locale): string[] {
+function getPost(id: string, locale: Locale): string {
+  const fullPath = path.join(getPostsDirectory(locale), id) + ".md";
+  const fileContent = fs.readFileSync(fullPath, "utf8");
+  const parsedResult = matter(fileContent);
+  const parsedContent = marked.parse(parsedResult.content);
+
+  return parsedContent;
+}
+
+function getPostsIds(locale: Locale): string[] {
   const postsDirectory = getPostsDirectory(locale);
   const fileNames = fs.readdirSync(postsDirectory);
   const ids = fileNames.map((fileName) => fileName.replace(/(\.md)|(\W)$/, ""));
 
   return ids;
 }
+
+export { getPosts, getPostsIds, getPost };
